@@ -1,0 +1,17 @@
+% Шаблон ХПІ
+\makeatletter
+\def\input@path{{./classes/}}
+\makeatother
+\documentclass[14pt]{extarticle}
+\input{base/preambule}
+\input{settings}
+
+\begin{document}
+
+\input{base/styles}
+\input{base/titlePage}
+\input{base/contents}
+
+\input{reports/\reportMainFile}
+
+\end{document}
