@@ -3,56 +3,58 @@
 </div>
 
 
-# Шаблон звітів в LaTeX для студентів ХПІ
+# LaTeX Report Template for Students of KhPI
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/blackgolyb/LaTeX-reports/blob/main/README.md)
+[![ua](https://img.shields.io/badge/lang-ua-yellow.svg)](https://github.com/blackgolyb/LaTeX-reports/blob/main/README.ua.md)
 
-Цей проєкт створений для студентів ХПІ, щоб швидко і зручно створювати звіти для різних завдань, таких як лабораторні роботи, контрольні та інші навчальні роботи. Він дозволяє автоматизувати процес створення звіту, підставляючи ваші персональні дані та іншу необхідну інформацію в готовий шаблон звіту.
+This project is designed for students of KhPI to quickly and easily create reports for various tasks, such as lab work, tests, and other academic work. It automates the report creation process by filling in your personal details and other necessary information into a ready-made report template.
 
-## Вимоги
+## Requirements
 
-Для використання проєкту вам потрібно мати:
+To use this project, you need the following:
 
-### Збірка в Docker (_Рекомендовано_)
+### Docker Build (_Recommended_)
 
-- `GNU Make` (для автоматизації збірки проєкту)
-- `Docker` (для збірки звітів в вже налаштованому середовищі)
-- `Docker Compose` (для запуска Docker контейнера з потрібними параметрами)
+- `GNU Make` (for project build automation)
+- `Docker` (for building reports in a pre-configured environment)
+- `Docker Compose` (to run the Docker container with the necessary parameters)
 
-### Локальна збірка
+### Local Build
 
-- `GNU Make` (для автоматизації збірки проєкту)
-- `LaTeX` (з установленими базовими пакетами, наприклад, `texlive` або інші)
+- `GNU Make` (for project build automation)
+- `LaTeX` (with installed base packages like `texlive` or others)
 
+## Configuration
 
-## Налаштування
-
-Щоб налаштувати звіт під себе, відкрийте файл `settings.tex` і заповніть його своїми даними. Ось приклад вмісту `settings.tex`, який ви маєте змінити:
+To configure the report for yourself, open the `settings.tex` file and fill in your details. Here's an example of the `settings.tex` content that you need to modify:
 
 ```latex
-\newcommand{\fullName}{ПІБ}
-\newcommand{\studyingGroup}{КН-777а}
+\newcommand{\fullName}{Full Name}
+\newcommand{\studyingGroup}{KN-777a}
 \newcommand{\variant}{7}
 
-\newcommand{\tacherPosition}{Посада викладача}
-\newcommand{\tacherFullName}{ПІБ викладача}
-\newcommand{\subject}{Назва предмету}
-\newcommand{\department}{Назва катедри}
+\newcommand{\tacherPosition}{Teacher’s Position}
+\newcommand{\tacherFullName}{Teacher’s Full Name}
+\newcommand{\subject}{Subject Name}
+\newcommand{\department}{Department Name}
 
-\newcommand{\taskName}{Назва звіту}
-% шлях до вашого файлу зі звітом який ви можете розміщувати в теці reports
+\newcommand{\taskName}{Report Title}
+% path to your report file, which you can place in the reports folder
 \newcommand{\reportMainFile}{templates/lab/main.tex}
 ```
 
-## Збірка
-Після того, як ви заповнили свої дані та налаштували проєкт під себе, ви можете зібрати звіт, виконавши команду:
+## Build
 
-### Збірка в Docker (_Рекомендовано_)
+After filling in your details and configuring the project for yourself, you can build the report by running the following command:
+
+### Docker Build (_Recommended_)
 ```bash
 make
 ```
 
-### Локальна збірка
+### Local Build
 ```bash
 make build_locale
 ```
 
-Після збірки ви побачите теку **build** в корені проєкту та зможете забрати звідти як готовий PDF документ так і інші файли білда
+After the build, you will see a **build** folder in the project root, where you can find the final PDF document and other build files.
