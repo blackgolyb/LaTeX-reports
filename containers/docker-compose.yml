@@ -7,6 +7,7 @@ services:
         volumes:
             - ${SRC_FOLDER}:/docs
             - ${REPORTS_FOLDER}:/reports
+            - ${PROFILES_FOLDER}:/profiles
             - ${BUILD_FOLDER}:/build
             - ${CODE_FOLDER}:/code
         working_dir: /docs

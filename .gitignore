@@ -1,5 +1,7 @@
 build
 settings.tex
+*.env*
+!*.env*.template
 
 
 ## Core latex/pdflatex auxiliary files:

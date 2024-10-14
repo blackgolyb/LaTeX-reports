@@ -2,29 +2,26 @@ export DOCKER_DEFAULT_PLATFORM=linux/amd64
 PROJECT_DIR := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 
 
+ENV_FILE ?= $(realpath ./.env)
 
-SRC_FOLDER		= ./src
-REPORTS_FOLDER	= ./src/reports
-BUILD_FOLDER	= ./build
-CODE_FOLDER		= ../code
+ifeq ($(ENV_FILE),)
+ENV_FILE := $(realpath ../.env)
+ifeq ($(ENV_FILE),)
+$(error .env file must be in this folder on parent folder)
+endif
+endif
 
-MAIN_FILE		= main.tex
-
-LATEX_PROGRAM	= xelatex
-LATEX_ARGS		=
-
-PROFILE			?= default
-REPORT			?= templates/lab
-
-
+include $(ENV_FILE)
 
 SRC_FOLDER		:= $(abspath $(SRC_FOLDER))
 REPORTS_FOLDER	:= $(abspath $(REPORTS_FOLDER))
+PROFILES_FOLDER	:= $(abspath $(PROFILES_FOLDER))
 BUILD_FOLDER	:= $(abspath $(BUILD_FOLDER))
 CODE_FOLDER		:= $(abspath $(CODE_FOLDER))
 
 export SRC_FOLDER
 export REPORTS_FOLDER
+export PROFILES_FOLDER
 export BUILD_FOLDER
 export CODE_FOLDER
 export MAIN_FILE
@@ -40,7 +37,7 @@ $(error PROFILE variable must be set)
 endif
 
 define settings_content
-\input{profiles/${PROFILE}/profile.tex}
+\input{/profiles/${PROFILE}/profile.tex}
 \newcommand{\reportDirectory}{\reportBaseDirectory/${REPORT}}
 endef
 export settings_content
