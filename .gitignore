@@ -1,5 +1,5 @@
 build
-settings.tex
+src/settings.tex
 *.env*
 !*.env*.template
 

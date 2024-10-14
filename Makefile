@@ -44,18 +44,18 @@ export settings_content
 
 
 
-all: write_settings build
+all: build
 
 write_settings:
 	echo "$$settings_content" > ${PROJECT_DIR}/src/settings.tex
 
-build:
+build: write_settings
 	docker compose -f ${PROJECT_DIR}/containers/docker-compose.yml up
 
-rebuild:
+rebuild: write_settings
 	docker compose -f ${PROJECT_DIR}/containers/docker-compose.yml up --build
 
-build_locale:
+build_locale: write_settings
 	mkdir -p ${BUILD_FOLDER} && \
 	cd src \
 	&& ${LATEX_PROGRAM} ${LATEX_ARGS} -output-directory=${BUILD_FOLDER} ${MAIN_FILE}\
