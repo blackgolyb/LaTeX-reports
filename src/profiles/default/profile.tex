@@ -15,3 +15,7 @@
 \newcommand{\codeDirectory}{/code}
 \newcommand{\assetsDirectory}{\reportDirectory/assets}
 \newcommand{\reportMainFile}{\reportDirectory/main.tex}
+
+\IfFileExists{\reportDirectory/settings.tex}
+{\input{\reportDirectory/settings.tex}}
+{}

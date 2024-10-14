@@ -37,8 +37,8 @@ $(error PROFILE variable must be set)
 endif
 
 define settings_content
-\input{/profiles/${PROFILE}/profile.tex}
 \newcommand{\reportDirectory}{\reportBaseDirectory/${REPORT}}
+\input{/profiles/${PROFILE}/profile.tex}
 endef
 export settings_content
 
